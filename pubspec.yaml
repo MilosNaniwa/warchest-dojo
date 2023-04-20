@@ -1,0 +1,64 @@
+name: warchest_dojo
+description: ボードゲーム「WarChest」対CPU版
+
+publish_to: 'none'
+
+version: 0.4.2+38
+
+environment:
+  sdk: ">=2.17.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  cloud_firestore: ^4.1.0
+  csv: ^5.0.1
+  equatable: ^2.0.3
+  firebase_analytics: ^10.0.6
+  firebase_auth: ^4.1.3
+  firebase_core: ^2.3.0
+  flutter_bloc: ^8.0.1
+  flutter_lints: ^2.0.1
+  flutter_localizations:
+    sdk: flutter
+  font_awesome_flutter: ^10.2.1
+  http: ^0.13.4
+  image_save: ^5.0.0
+  package_info_plus: ^3.0.2
+  sentry_flutter: ^6.2.2
+  stack_trace: ^1.10.0
+  toggle_switch: ^2.0.1
+  url_launcher: ^6.0.17
+  logger: ^1.1.0
+  flutter_native_splash: ^2.2.18
+  drop_cap_text: ^1.1.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: Yuji Syuku
+      fonts:
+        - asset: fonts/YujiSyuku-Regular.ttf
+
+  assets:
+    - assets/character/
+    - assets/icons/
+    - assets/units/
+
+flutter_native_splash:
+  android: false
+  ios: false
+  web: true
+  color: "#e1f5fe"
+  color_dark: "#e1f5fe"
+  fullscreen: true
+  image: assets/icons/loading.png
+  web_image_mode: center
