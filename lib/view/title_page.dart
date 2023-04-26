@@ -1164,6 +1164,18 @@ class TitlePage extends StatelessWidget {
           const Spacer(
             flex: 2,
           ),
+          InkWell(
+            onTap: () => launchUrlString(
+              'https://github.com/MilosNaniwa/warchest-dojo',
+            ),
+            child: const FaIcon(
+              FontAwesomeIcons.github,
+              size: 24,
+            ),
+          ),
+          const Spacer(
+            flex: 2,
+          ),
         ],
       ),
     );
