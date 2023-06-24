@@ -151,6 +151,10 @@ With these settings in mind, start the conversation as Alisha.
               "role": "system",
               "content": "All replies should be translated into $globalLanguageCode.",
             },
+          {
+            "role": "user",
+            "content": globalLanguageCode == "ja" ? "始めましょう！" : "Let's Begin!",
+          },
         ];
       }
 

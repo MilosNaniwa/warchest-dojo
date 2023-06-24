@@ -1,6 +1,6 @@
+import 'dart:async';
 import 'dart:math';
 
-import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -119,6 +119,12 @@ class PlayPageView extends StatelessWidget {
       (ChatCubit cubit) => cubit.state.chatBotMessage,
     );
 
+    final turn = context.select(
+      (GameMasterCubit cubit) => cubit.state.currentGameState == null
+          ? HexagonConst.playerBlue
+          : cubit.state.currentGameState!.turn,
+    );
+
     return StatefulWrapper(
       onInit: () {
         context.read<GameMasterCubit>().initialize(
@@ -168,33 +174,44 @@ class PlayPageView extends StatelessWidget {
                             const _BattleField(
                               executeActionBasedOnValue: executeActionBasedOnValue,
                             ),
-                            const _CurrentTurnText(),
+                            Row(
+                              children: [
+                                const _CurrentTurnText(),
+                                SizedBox(
+                                  width: 16,
+                                ),
+                                turn == HexagonConst.playerBlue
+                                    ? const SizedBox.shrink()
+                                    : ThinkingIndicator(
+                                        millisecond: aiThinkingTime,
+                                      ),
+                              ],
+                            ),
                             const _LastTurnTextLogArea(),
                             if (globalChatMode)
                               Padding(
                                 padding: const EdgeInsets.all(16),
                                 child: SizedBox(
-                                  width: baseWidth * 0.3,
-                                  child: DropCapText(
-                                    chatStatus == ChatStatus.inProgress ? '...' : chatBotMessage,
-                                    style: const TextStyle(
-                                      fontSize: baseWidth * 0.01 > 14 ? baseWidth * 0.01 : 14,
-                                      color: Colors.black87,
-                                    ),
-                                    dropCap: DropCap(
-                                      width: 100,
-                                      height: 100,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: SizedBox(
-                                          width: 100,
-                                          height: 100,
-                                          child: Image.asset(
-                                            'assets/character/alisha.png',
-                                          ),
+                                  width: baseWidth * 0.4,
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        width: 120,
+                                        height: 120,
+                                        child: Image.asset(
+                                          'assets/character/alisha.png',
                                         ),
                                       ),
-                                    ),
+                                      const SizedBox(
+                                        width: 16,
+                                      ),
+                                      Flexible(
+                                        child: chatStatus == ChatStatus.inProgress
+                                            ? const Text('...')
+                                            : TypewriterText(text: chatBotMessage),
+                                      )
+                                    ],
                                   ),
                                 ),
                               ),
@@ -320,12 +337,9 @@ class _CurrentTurnText extends StatelessWidget {
     return Visibility(
       visible: winner.isEmpty,
       child: Text(
-        PlayPageMessage.of(globalLanguageCode).turnOfPlayerOrComputer.replaceAll(
-              "{team}",
-              Util.convertTeamIdToTeamName(
-                team: turn,
-              ),
-            ),
+        turn == HexagonConst.playerBlue
+            ? PlayPageMessage.of(globalLanguageCode).yourTurn
+            : PlayPageMessage.of(globalLanguageCode).aiIsThinking,
         style: TextStyle(
           fontSize: 20,
           color: turn == HexagonConst.playerBlue ? Colors.blueAccent : Colors.redAccent,
@@ -494,8 +508,8 @@ class _BattleField extends StatelessWidget {
     final boardState = context.watch<BoardCubit>().state;
 
     return SizedBox(
-      height: 560,
-      width: 560,
+      height: 480,
+      width: 480,
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: LayoutBuilder(
@@ -1474,6 +1488,111 @@ class _CemeteryWidget extends StatelessWidget {
           Text(cemeteryUnitList.length.toString()),
         ],
       ),
+    );
+  }
+}
+
+class TypewriterText extends StatefulWidget {
+  final String text;
+  const TypewriterText({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  TypewriterTextState createState() => TypewriterTextState();
+}
+
+class TypewriterTextState extends State<TypewriterText> with SingleTickerProviderStateMixin {
+  Timer? _timer;
+  int _visibleChars = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(const Duration(milliseconds: 10), (Timer t) {
+      setState(() {
+        if (_visibleChars < widget.text.length) {
+          _visibleChars++;
+        } else {
+          _timer?.cancel();
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      widget.text.substring(0, _visibleChars),
+      style: const TextStyle(
+        fontSize: baseWidth * 0.01 > 14 ? baseWidth * 0.01 : 14,
+        color: Colors.black87,
+      ),
+    );
+  }
+}
+
+class ThinkingIndicator extends StatefulWidget {
+  final int millisecond;
+
+  const ThinkingIndicator({Key? key, required this.millisecond}) : super(key: key);
+
+  @override
+  ThinkingIndicatorState createState() => ThinkingIndicatorState();
+}
+
+class ThinkingIndicatorState extends State<ThinkingIndicator> with SingleTickerProviderStateMixin {
+  AnimationController? _controller;
+  Timer? _timer;
+  double? _progress;
+
+  @override
+  void initState() {
+    super.initState();
+    _progress = 0;
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: widget.millisecond),
+    );
+
+    _timer = Timer.periodic(Duration(microseconds: (widget.millisecond).toInt()), (Timer t) {
+      if (_progress! < 1) {
+        setState(() {
+          _progress = _progress! + 0.01; // Increase by 1% every 100 milliseconds
+        });
+      } else {
+        t.cancel();
+      }
+    });
+
+    _controller?.forward();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _controller?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CircularProgressIndicator(
+          value: _progress,
+          backgroundColor: Colors.grey[200],
+          valueColor: const AlwaysStoppedAnimation<Color>(Colors.redAccent),
+        ),
+      ],
     );
   }
 }
