@@ -26,31 +26,6 @@ class TitlePageMessage {
   final String random;
   final String custom;
   final String recentUpdate;
-  final String version0_4_2;
-  final String version0_4_1;
-  final String version0_4_0;
-  final String version0_3_3;
-  final String version0_3_2;
-  final String version0_3_1;
-  final String version0_3_0;
-  final String version0_2_4;
-  final String version0_2_3;
-  final String version0_2_2;
-  final String version0_2_1;
-  final String version0_2_0;
-  final String version0_1_2;
-  final String version0_1_1;
-  final String version0_1_0;
-  final String version0_0_10;
-  final String version0_0_9;
-  final String version0_0_8;
-  final String version0_0_7;
-  final String version0_0_6;
-  final String version0_0_5;
-  final String version0_0_4;
-  final String version0_0_3;
-  final String version0_0_2;
-  final String version0_0_1;
 
   TitlePageMessage({
     required this.titleWarChestDojo,
@@ -80,31 +55,6 @@ class TitlePageMessage {
     required this.random,
     required this.custom,
     required this.recentUpdate,
-    required this.version0_4_2,
-    required this.version0_4_1,
-    required this.version0_4_0,
-    required this.version0_3_3,
-    required this.version0_3_2,
-    required this.version0_3_1,
-    required this.version0_3_0,
-    required this.version0_2_4,
-    required this.version0_2_3,
-    required this.version0_2_2,
-    required this.version0_2_1,
-    required this.version0_2_0,
-    required this.version0_1_2,
-    required this.version0_1_1,
-    required this.version0_1_0,
-    required this.version0_0_10,
-    required this.version0_0_9,
-    required this.version0_0_8,
-    required this.version0_0_7,
-    required this.version0_0_6,
-    required this.version0_0_5,
-    required this.version0_0_4,
-    required this.version0_0_3,
-    required this.version0_0_2,
-    required this.version0_0_1,
   });
 
   factory TitlePageMessage.of(String languageCode) {
@@ -113,6 +63,20 @@ class TitlePageMessage {
         return TitlePageMessage.ja();
       case 'en':
         return TitlePageMessage.en();
+      case 'zh':
+        return TitlePageMessage.zh();
+      case 'ko':
+        return TitlePageMessage.ko();
+      case 'ru':
+        return TitlePageMessage.ru();
+      case 'uk':
+        return TitlePageMessage.uk();
+      case 'hr':
+        return TitlePageMessage.hr();
+      case 'fr':
+        return TitlePageMessage.fr();
+      case 'it':
+        return TitlePageMessage.it();
       default:
         return TitlePageMessage.en();
     }
@@ -147,31 +111,6 @@ class TitlePageMessage {
         custom: 'カスタム',
         confirm: '次へ',
         recentUpdate: '更新情報',
-        version0_4_2: '突撃騎兵を弱体化（5枚→4枚）。\n難易度に試作品を追加。',
-        version0_4_1: 'アリーシャの反応を改善。',
-        version0_4_0: 'AIプレーヤー「アリーシャ」を実装。',
-        version0_3_3: 'フレームワークを更新。',
-        version0_3_2: 'フレームワークを更新。',
-        version0_3_1: '先攻奪取のバグを修正。',
-        version0_3_0: '駒の絵柄を選択できる機能を実装。',
-        version0_2_4: '槍兵のバグを修正。AIの思考回路を調整。',
-        version0_2_3: 'AIの思考回路を調整。',
-        version0_2_2: 'UIを改善。',
-        version0_2_1: '翻訳を修正。',
-        version0_2_0: 'ゲームエンジンのアルゴリズムを差し替え。',
-        version0_1_2: 'AIが剣兵を使用した際のバグを修正。',
-        version0_1_1: 'AIの思考回路を調整。',
-        version0_1_0: '兵種を選択できる機能を実装。\n難易度を選択できる機能を実装。',
-        version0_0_10: 'AIの使用可能兵種を追加\nAIの思考回路を調整。',
-        version0_0_9: '先攻奪取機能を実装。',
-        version0_0_8: '全ての駒を着色。',
-        version0_0_7: 'AIが状況に応じて手札を選択するよう思考回路を調整。',
-        version0_0_6: '僧兵が両陣営に出現する問題を修正。\n狂戦士の挙動に問題がある可能性が存在するため、一時使用停止。',
-        version0_0_5: 'AIの思考回路を調整。',
-        version0_0_4: 'AIの思考回路を調整。',
-        version0_0_3: 'AIの思考回路を調整。',
-        version0_0_2: 'AIの思考回路を調整。バグを修正。',
-        version0_0_1: '公開',
       );
 
   factory TitlePageMessage.en() => TitlePageMessage(
@@ -204,32 +143,224 @@ class TitlePageMessage {
         custom: 'Custom',
         confirm: 'Next',
         recentUpdate: 'Recent update',
-        version0_4_2: 'Weakened assault cavalry（5 Units → 4 Units）。\nAdded a prototype to the '
-            'difficulty level.',
-        version0_4_1: 'Improved Alisha\'s response.',
-        version0_4_0: 'Implemented AI player named Alisha.',
-        version0_3_3: 'Updated framework.',
-        version0_3_2: 'Updated framework.',
-        version0_3_1: 'Fixed bug related to first-move advantage.',
-        version0_3_0: 'Implemented ability to select unit illustrations.',
-        version0_2_4: 'Fixed bug related to Pikeman. Adjusted AI thought process.',
-        version0_2_3: 'Adjusted AI thought process.',
-        version0_2_2: 'Improved UI.',
-        version0_2_1: 'Corrected translation.',
-        version0_2_0: 'Replaced game engine algorithm.',
-        version0_1_2: 'Fixed bug related to AI using swordsmen.',
-        version0_1_1: 'Adjusted AI thought process.',
-        version0_1_0: 'Implemented ability to select unit types and difficulty.',
-        version0_0_10: 'Added additional unit types for AI. Adjusted AI thought process.',
-        version0_0_9: 'Implemented first-move advantage.',
-        version0_0_8: 'Colored all pieces.',
-        version0_0_7: 'Adjusted AI thought process to select cards based on situation.',
-        version0_0_6:
-            'Fixed issue with monks appearing on both sides. Temporarily disabled berserker due to potential issues with behavior.',
-        version0_0_5: 'Adjusted AI thought process.',
-        version0_0_4: 'Adjusted AI thought process.',
-        version0_0_3: 'Adjusted AI thought process.',
-        version0_0_2: 'Adjusted AI thought process. Fixed bug.',
-        version0_0_1: 'Released.',
+      );
+
+  factory TitlePageMessage.zh() => TitlePageMessage(
+        titleWarChestDojo: "戰爭寶箱\n道場",
+        startTraining: '對 AI',
+        howToPlay: '如何遊玩',
+        feedback: '反饋',
+        faq: '常見問題',
+        feedbackUrl:
+            'https://docs.google.com/forms/d/16U8ZziTQ7Yu_AWQNR1qZGPRXYD9aumGEYmz54IoEmeg/viewform',
+        supportCreator: '捐贈',
+        debugMode: '調試模式',
+        close: '關閉',
+        difficulty: '難度',
+        illustrationOfUnit: '單位插圖',
+        chatMode: '聊天模式 (測試中)',
+        chatModeDescription: '※AI 將在一定數量的回合後說話。',
+        on: '開',
+        off: '關',
+        kanji: '日文\n漢字',
+        illustration: '遊戲\n原創',
+        chief: '首領 ★',
+        sergeant: '中士 ★★',
+        shogun: '將軍 ★★★',
+        prototype: '原型 ??? (測試中)',
+        prototypeNotification: '※由於 AI 的計算量，操作可能會變慢。',
+        draftMode: '草稿模式',
+        random: '隨機',
+        custom: '自定義',
+        confirm: '下一步',
+        recentUpdate: '最近更新',
+      );
+
+  factory TitlePageMessage.ko() => TitlePageMessage(
+        titleWarChestDojo: "전쟁 상자\n도장",
+        startTraining: 'vs AI',
+        howToPlay: '게임 방법',
+        feedback: '피드백',
+        faq: 'FAQ',
+        feedbackUrl:
+            'https://docs.google.com/forms/d/16U8ZziTQ7Yu_AWQNR1qZGPRXYD9aumGEYmz54IoEmeg/viewform',
+        supportCreator: '기부',
+        debugMode: '디버그 모드',
+        close: '닫기',
+        difficulty: '난이도',
+        illustrationOfUnit: '유닛의 일러스트레이션',
+        chatMode: '채팅 모드 (베타)',
+        chatModeDescription: '※AI는 일정 턴 후에 대화합니다.',
+        on: '켜기',
+        off: '끄기',
+        kanji: '일본어\n한자',
+        illustration: '게임\n원작',
+        chief: '족장 ★',
+        sergeant: '중사 ★★',
+        shogun: '장군 ★★★',
+        prototype: '프로토타입 ??? (베타)',
+        prototypeNotification: '※AI의 계산량으로 인해 운영이 느려질 수 있습니다.',
+        draftMode: '드래프트 모드',
+        random: '랜덤',
+        custom: '사용자 정의',
+        confirm: '다음',
+        recentUpdate: '최신 업데이트',
+      );
+
+  factory TitlePageMessage.ru() => TitlePageMessage(
+        titleWarChestDojo: "Военная казна\nДодзё",
+        startTraining: 'против AI',
+        howToPlay: 'Как играть',
+        feedback: 'Отзывы',
+        faq: 'FAQ',
+        feedbackUrl:
+            'https://docs.google.com/forms/d/16U8ZziTQ7Yu_AWQNR1qZGPRXYD9aumGEYmz54IoEmeg/viewform',
+        supportCreator: 'Пожертвовать',
+        debugMode: 'Режим отладки',
+        close: 'Закрыть',
+        difficulty: 'Сложность',
+        illustrationOfUnit: 'Иллюстрация юнита',
+        chatMode: 'Чат (бета)',
+        chatModeDescription: '※AI будет говорить после определенного числа ходов.',
+        on: 'Вкл',
+        off: 'Выкл',
+        kanji: 'Японские\nКандзи',
+        illustration: 'Игровая\nОригинал',
+        chief: 'Вождь ★',
+        sergeant: 'Сержант ★★',
+        shogun: 'Сёгун ★★★',
+        prototype: 'Прототип ??? (Бета)',
+        prototypeNotification: '※Операция может замедлиться из-за количества вычислений в AI.',
+        draftMode: 'Режим черновика',
+        random: 'Случайный',
+        custom: 'Пользовательский',
+        confirm: 'Далее',
+        recentUpdate: 'Последнее обновление',
+      );
+
+  factory TitlePageMessage.uk() => TitlePageMessage(
+        titleWarChestDojo: "Військова Скриня\nДодзьо",
+        startTraining: 'проти AI',
+        howToPlay: 'Як грати',
+        feedback: 'Зворотний зв’язок',
+        faq: 'Часті питання',
+        feedbackUrl:
+            'https://docs.google.com/forms/d/16U8ZziTQ7Yu_AWQNR1qZGPRXYD9aumGEYmz54IoEmeg/viewform',
+        supportCreator: 'Пожертвувати',
+        debugMode: 'Режим налагодження',
+        close: 'Закрити',
+        difficulty: 'Складність',
+        illustrationOfUnit: 'Ілюстрація одиниці',
+        chatMode: 'Режим чату (бета)',
+        chatModeDescription: '※AI буде говорити після певної кількості ходів.',
+        on: 'Увімк.',
+        off: 'Вимк.',
+        kanji: 'Японські\nКандзі',
+        illustration: 'Гра\nОригінал',
+        chief: 'Вождь ★',
+        sergeant: 'Сержант ★★',
+        shogun: 'Сьогун ★★★',
+        prototype: 'Прототип ??? (Бета)',
+        prototypeNotification: '※Операція може стати повільною через кількість обчислень в AI.',
+        draftMode: 'Режим чернетки',
+        random: 'Випадковий',
+        custom: 'Користувацький',
+        confirm: 'Далі',
+        recentUpdate: 'Останнє оновлення',
+      );
+
+  factory TitlePageMessage.hr() => TitlePageMessage(
+        titleWarChestDojo: "Ratna prsa\nDojo",
+        startTraining: 'protiv AI',
+        howToPlay: 'Kako igrati',
+        feedback: 'Povratne informacije',
+        faq: 'Često postavljena pitanja',
+        feedbackUrl:
+            'https://docs.google.com/forms/d/16U8ZziTQ7Yu_AWQNR1qZGPRXYD9aumGEYmz54IoEmeg/viewform',
+        supportCreator: 'Doniraj',
+        debugMode: 'Način za otklanjanje pogrešaka',
+        close: 'Zatvori',
+        difficulty: 'Težina',
+        illustrationOfUnit: 'Ilustracija jedinice',
+        chatMode: 'Način razgovora (beta)',
+        chatModeDescription: '※AI će govoriti nakon određenog broja poteza.',
+        on: 'Uključeno',
+        off: 'Isključeno',
+        kanji: 'Japanski\nKanji',
+        illustration: 'Igra\nOriginal',
+        chief: 'Šef ★',
+        sergeant: 'Narednik ★★',
+        shogun: 'Šogun ★★★',
+        prototype: 'Prototip ??? (Beta)',
+        prototypeNotification: '※Operacija može postati spora zbog količine izračuna u AI.',
+        draftMode: 'Način skice',
+        random: 'Nasumično',
+        custom: 'Prilagođeno',
+        confirm: 'Sljedeće',
+        recentUpdate: 'Nedavno ažuriranje',
+      );
+
+  factory TitlePageMessage.fr() => TitlePageMessage(
+        titleWarChestDojo: "Coffre de guerre\nDojo",
+        startTraining: 'vs IA',
+        howToPlay: 'Comment jouer',
+        feedback: 'Retour',
+        faq: 'FAQ',
+        feedbackUrl:
+            'https://docs.google.com/forms/d/16U8ZziTQ7Yu_AWQNR1qZGPRXYD9aumGEYmz54IoEmeg/viewform',
+        supportCreator: 'Faire un don',
+        debugMode: 'Mode debug',
+        close: 'Fermer',
+        difficulty: 'Difficulté',
+        illustrationOfUnit: 'Illustration de l\'unité',
+        chatMode: 'Mode de chat (beta)',
+        chatModeDescription: '※L\'IA parlera après un certain nombre de tours.',
+        on: 'On',
+        off: 'Off',
+        kanji: 'Japonais\nKanji',
+        illustration: 'Jeu\nOriginal',
+        chief: 'Chef ★',
+        sergeant: 'Sergent ★★',
+        shogun: 'Shogun ★★★',
+        prototype: 'Prototype ??? (Beta)',
+        prototypeNotification:
+            '※L\'opération peut devenir lente en raison de la quantité de calculs dans l\'IA.',
+        draftMode: 'Mode brouillon',
+        random: 'Aléatoire',
+        custom: 'Personnalisé',
+        confirm: 'Suivant',
+        recentUpdate: 'Mise à jour récente',
+      );
+
+  factory TitlePageMessage.it() => TitlePageMessage(
+        titleWarChestDojo: "Tesoro di guerra\nDojo",
+        startTraining: 'vs IA',
+        howToPlay: 'Come giocare',
+        feedback: 'Feedback',
+        faq: 'FAQ',
+        feedbackUrl:
+            'https://docs.google.com/forms/d/16U8ZziTQ7Yu_AWQNR1qZGPRXYD9aumGEYmz54IoEmeg/viewform',
+        supportCreator: 'Donare',
+        debugMode: 'Modalità di debug',
+        close: 'Chiudi',
+        difficulty: 'Difficoltà',
+        illustrationOfUnit: 'Illustrazione dell\'unità',
+        chatMode: 'Modalità chat (beta)',
+        chatModeDescription: '※L\'IA parlerà dopo un certo numero di turni.',
+        on: 'On',
+        off: 'Off',
+        kanji: 'Giapponese\nKanji',
+        illustration: 'Gioco\nOriginale',
+        chief: 'Capo ★',
+        sergeant: 'Sergente ★★',
+        shogun: 'Shogun ★★★',
+        prototype: 'Prototipo ??? (Beta)',
+        prototypeNotification:
+            '※L\'operazione potrebbe diventare lenta a causa della quantità di calcoli nell\'IA.',
+        draftMode: 'Modalità bozza',
+        random: 'Casuale',
+        custom: 'Personalizzato',
+        confirm: 'Avanti',
+        recentUpdate: 'Aggiornamento recente',
       );
 }

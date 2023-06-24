@@ -6,6 +6,7 @@ import 'package:warchest_dojo/const/environment_const.dart';
 import 'package:warchest_dojo/const/hexagon_const.dart';
 import 'package:warchest_dojo/const/unit_class_const.dart';
 import 'package:warchest_dojo/global.dart';
+import 'package:warchest_dojo/localization/release_note_message.dart';
 import 'package:warchest_dojo/localization/title_page_message.dart';
 import 'package:warchest_dojo/view/draft_page.dart';
 import 'package:warchest_dojo/view/play_page/play_page.dart';
@@ -561,8 +562,7 @@ class TitlePage extends StatelessWidget {
           const Spacer(
             flex: 2,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
             children: [
               TextButton(
                 onPressed: globalLanguageCode == "ja"
@@ -610,6 +610,188 @@ class TitlePage extends StatelessWidget {
                   ),
                 ),
               ),
+              Text(
+                " / ",
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                ),
+              ),
+              TextButton(
+                onPressed: globalLanguageCode == "zh"
+                    ? null
+                    : () {
+                        globalLanguageCode = "zh";
+                        globalKanjiMode = false;
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const TitlePage(),
+                          ),
+                          (route) => false,
+                        );
+                      },
+                child: Text(
+                  "中文",
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                ),
+              ),
+              Text(
+                " / ",
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                ),
+              ),
+              TextButton(
+                onPressed: globalLanguageCode == "ko"
+                    ? null
+                    : () {
+                        globalLanguageCode = "ko";
+                        globalKanjiMode = false;
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const TitlePage(),
+                          ),
+                          (route) => false,
+                        );
+                      },
+                child: Text(
+                  "한국어",
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                ),
+              ),
+              // Text(
+              //   " / ",
+              //   style: TextStyle(
+              //     fontSize: MediaQuery.of(context).size.height * 0.02,
+              //   ),
+              // ),
+              // TextButton(
+              //   onPressed: globalLanguageCode == "ru"
+              //       ? null
+              //       : () {
+              //           globalLanguageCode = "ru";
+              //           globalKanjiMode = false;
+              //           Navigator.of(context).pushAndRemoveUntil(
+              //             MaterialPageRoute(
+              //               builder: (context) => const TitlePage(),
+              //             ),
+              //             (route) => false,
+              //           );
+              //         },
+              //   child: Text(
+              //     "ロシア語",
+              //     style: TextStyle(
+              //       fontSize: MediaQuery.of(context).size.height * 0.02,
+              //     ),
+              //   ),
+              // ),
+              Text(
+                " / ",
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                ),
+              ),
+              TextButton(
+                onPressed: globalLanguageCode == "hr"
+                    ? null
+                    : () {
+                        globalLanguageCode = "hr";
+                        globalKanjiMode = false;
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const TitlePage(),
+                          ),
+                          (route) => false,
+                        );
+                      },
+                child: Text(
+                  "Hrvatski",
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                ),
+              ),
+              Text(
+                " / ",
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                ),
+              ),
+              TextButton(
+                onPressed: globalLanguageCode == "fr"
+                    ? null
+                    : () {
+                        globalLanguageCode = "fr";
+                        globalKanjiMode = false;
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const TitlePage(),
+                          ),
+                          (route) => false,
+                        );
+                      },
+                child: Text(
+                  "Français",
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                ),
+              ),
+              Text(
+                " / ",
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                ),
+              ),
+              TextButton(
+                onPressed: globalLanguageCode == "it"
+                    ? null
+                    : () {
+                        globalLanguageCode = "it";
+                        globalKanjiMode = false;
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const TitlePage(),
+                          ),
+                          (route) => false,
+                        );
+                      },
+                child: Text(
+                  "Italiano",
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                ),
+              ),
+              // Text(
+              //   " / ",
+              //   style: TextStyle(
+              //     fontSize: MediaQuery.of(context).size.height * 0.02,
+              //   ),
+              // ),
+              // TextButton(
+              //   onPressed: globalLanguageCode == "uk"
+              //       ? null
+              //       : () {
+              //           globalLanguageCode = "uk";
+              //           globalKanjiMode = false;
+              //           Navigator.of(context).pushAndRemoveUntil(
+              //             MaterialPageRoute(
+              //               builder: (context) => const TitlePage(),
+              //             ),
+              //             (route) => false,
+              //           );
+              //         },
+              //   child: Text(
+              //     "ウクライナ",
+              //     style: TextStyle(
+              //       fontSize: MediaQuery.of(context).size.height * 0.02,
+              //     ),
+              //   ),
+              // ),
             ],
           ),
           const Spacer(
@@ -636,483 +818,518 @@ class TitlePage extends StatelessWidget {
                 content: SizedBox(
                   width: MediaQuery.of(context).size.height * 0.1,
                   child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "ver 0.4.2",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_4_2,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.4.1",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_4_1,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.4.0",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_4_0,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.3.3",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_3_3,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.3.2",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_3_2,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.3.1",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_3_1,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.3.0",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_3_0,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.2.4",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_2_4,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.2.3",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_2_3,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.2.2",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_2_2,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.2.1",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_2_1,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.2.0",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_2_0,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.1.2",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_1_2,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.1.1",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_1_1,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.1.0",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_1_0,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.0.10",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_0_10,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.0.9",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_0_9,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.0.8",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_0_8,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.0.7",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_0_7,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.0.6",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_0_6,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.0.5",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_0_5,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.0.4",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_0_4,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.0.3",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_0_3,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.0.2",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_0_2,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Text(
-                          "ver 0.0.1",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        Wrap(
-                          children: [
-                            Text(
-                              TitlePageMessage.of(globalLanguageCode).version0_0_1,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
+                    child: VersionInfoList(
+                      versionList: const [
+                        "ver 0.5.0",
+                        "ver 0.4.2",
+                        "ver 0.4.1",
+                        "ver 0.4.0",
+                        "ver 0.3.3",
+                        "ver 0.3.2",
+                        "ver 0.3.1",
+                        "ver 0.3.0",
+                        "ver 0.2.4",
+                        "ver 0.2.3",
+                        "ver 0.2.2",
+                        "ver 0.2.1",
+                        "ver 0.2.0",
+                        "ver 0.1.2",
+                        "ver 0.1.1",
+                        "ver 0.1.0",
+                        "ver 0.0.10",
+                        "ver 0.0.9",
+                        "ver 0.0.8",
+                        "ver 0.0.7",
+                        "ver 0.0.6",
+                        "ver 0.0.5",
+                        "ver 0.0.4",
+                        "ver 0.0.3",
+                        "ver 0.0.2",
+                        "ver 0.0.1",
+                      ],
+                      messageList: [
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_5_0,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_4_2,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_4_1,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_4_0,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_3_3,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_3_2,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_3_1,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_3_0,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_2_4,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_2_3,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_2_2,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_2_1,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_2_0,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_1_2,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_1_1,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_1_0,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_0_10,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_0_9,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_0_8,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_0_7,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_0_6,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_0_5,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_0_4,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_0_3,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_0_2,
+                        ReleaseNoteMessage.of(globalLanguageCode).version0_0_1,
                       ],
                     ),
+                    // Column(
+                    //   crossAxisAlignment: CrossAxisAlignment.start,
+                    //   children: [
+                    //     VersionInfo(
+                    //       versionTitle: "ver 0.5.0",
+                    //       releaseNoteMessage:
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_5_0,
+                    //     ),
+                    //     VersionInfo(
+                    //       versionTitle: "ver 0.4.2",
+                    //       releaseNoteMessage:
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_4_2,
+                    //     ),
+                    //     VersionInfo(
+                    //       versionTitle: "ver 0.4.1",
+                    //       releaseNoteMessage:
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_4_1,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.4.0",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_4_0,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.3.3",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_3_3,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.3.2",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_3_2,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.3.1",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_3_1,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.3.0",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_3_0,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.2.4",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_2_4,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.2.3",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_2_3,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.2.2",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_2_2,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.2.1",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_2_1,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.2.0",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_2_0,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.1.2",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_1_2,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.1.1",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_1_1,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.1.0",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_1_0,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.0.10",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_10,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.0.9",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_9,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.0.8",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_8,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.0.7",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_7,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.0.6",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_6,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.0.5",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_5,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.0.4",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_4,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.0.3",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_3,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.0.2",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_2,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     const SizedBox(
+                    //       height: 16,
+                    //     ),
+                    //     const Text(
+                    //       "ver 0.0.1",
+                    //       style: TextStyle(
+                    //         fontSize: 16,
+                    //       ),
+                    //     ),
+                    //     Wrap(
+                    //       children: [
+                    //         Text(
+                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_1,
+                    //           style: const TextStyle(
+                    //             fontSize: 12,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //   ],
+                    // ),
                   ),
                 ),
                 actions: [
@@ -1178,6 +1395,72 @@ class TitlePage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class VersionInfoList extends StatelessWidget {
+  final List<String> versionList;
+  final List<String> messageList;
+
+  const VersionInfoList({
+    super.key,
+    required this.versionList,
+    required this.messageList,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: versionList.asMap().entries.map((entry) {
+        int idx = entry.key;
+        String version = entry.value;
+
+        return VersionInfo(
+          versionTitle: version,
+          releaseNoteMessage: messageList[idx],
+        );
+      }).toList(),
+    );
+  }
+}
+
+class VersionInfo extends StatelessWidget {
+  final String versionTitle;
+  final String releaseNoteMessage;
+
+  const VersionInfo({
+    super.key,
+    required this.versionTitle,
+    required this.releaseNoteMessage,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          versionTitle,
+          style: const TextStyle(
+            fontSize: 16,
+          ),
+        ),
+        Wrap(
+          children: [
+            Text(
+              releaseNoteMessage,
+              style: const TextStyle(
+                fontSize: 12,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+      ],
     );
   }
 }

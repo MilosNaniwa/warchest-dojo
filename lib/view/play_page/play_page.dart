@@ -261,13 +261,13 @@ class _InformationArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       width: baseWidth * 0.3,
       child: Row(
         children: [
-          const Spacer(),
+          Spacer(),
           Column(
-            children: const [
+            children: [
               SizedBox(
                 height: 16,
               ),
