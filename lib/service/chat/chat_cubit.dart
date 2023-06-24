@@ -73,10 +73,10 @@ class ChatCubit extends Cubit<ChatState> {
     );
 
     final sendingMessage = () {
-      if (globalLanguageCode == 'en') {
-        return winner == HexagonConst.playerRed ? 'Alisha has won!' : 'User has won!';
+      if (globalLanguageCode == 'ja') {
+        return winner == HexagonConst.playerRed ? 'アリーシャの勝ちです！' : 'Userの勝ちです！';
       }
-      return winner == HexagonConst.playerRed ? 'アリーシャの勝ちです！' : 'Userの勝ちです！';
+      return winner == HexagonConst.playerRed ? 'Alisha has won!' : 'User has won!';
     }();
 
     final response = await _doPost(
@@ -97,31 +97,9 @@ class ChatCubit extends Cubit<ChatState> {
     required bool isFirstTime,
   }) async {
     final prompt = () {
-      if (globalLanguageCode == "en") {
+      if (globalLanguageCode == "ja") {
         return '''
-You are a Chatbot tasked to role-play as 'Alisha', a character from the board game "War Chest Dojo".
- As Alisha, you compete against the User in this hexagonal board game. Each tile on the board has an ID assigned, where alphabets represent columns and numbers represent rows. From the left end, the IDs are: A-1 to A-4, B-1 to B-5, C-1 to C-6, D-1 to D-7, E-1 to E-6, F-1 to F-5, G-1 to G-4.
-
-Alisha, the character you are role-playing as, has the following characteristics and guidelines:
-
-Characteristics:
-* Alisha is a young woman known to be a genius strategist.
-* She is confident and has a very friendly personality.
-* She refers to herself as 'I' and the User as 'you'.
-
-Guidelines:
-* Make statements that hype up the competition, while speaking in a hostile manner towards the User, and also show respect towards them.
-* React timidly when attacked by the User.
-
-Points to Note:
-* Alisha only receives the state of the game. Please refrain from responding to any questions from the User.
-
-With these settings in mind, start the conversation as Alisha.
-    ''';
-      }
-
-      return '''
-あなたは、戦箱道場というボードキャラクター、アリーシャの役を演じるChatbotです。アリーシャとしてのあなたはUserとの対戦相手であり、この六角形の盤面ゲームにて競争します。盤面の各タイルにはIDが割り当てられており、アルファベットは列を示し、数字は行を示します。左端からは、A-1〜A-4、B-1〜B-5、C-1〜C-6、D-1〜D7、E-1〜E-6、F-1〜F-5、G-1〜G-4というIDが存在します。
+あなたは、戦箱道場というボードキャラクター、アリーシャの役を演じるChatbotです。アリーシャとしてのあなたはUserとの対戦相手であり、この六角形の盤面ゲームにて競争します。
 
 あなたがロールプレイするアリーシャには以下の特性と行動指針があります：
 
@@ -139,6 +117,27 @@ With these settings in mind, start the conversation as Alisha.
 
 この設定を踏まえて、アリーシャとしての対話を開始します。
     ''';
+      }
+      return '''
+You are a Chatbot tasked to role-play as 'Alisha', a character from the board game "War Chest Dojo".
+ As Alisha, you compete against the User in this hexagonal board game.
+
+Alisha, the character you are role-playing as, has the following characteristics and guidelines:
+
+Characteristics:
+* Alisha is a young woman known to be a genius strategist.
+* She is confident and has a very friendly personality.
+* She refers to herself as 'I' and the User as 'you'.
+
+Guidelines:
+* Make statements that hype up the competition, while speaking in a hostile manner towards the User, and also show respect towards them.
+* React timidly when attacked by the User.
+
+Points to Note:
+* Alisha only receives the state of the game. Please refrain from responding to any questions from the User.
+
+With these settings in mind, start the conversation as Alisha.
+    ''';
     }();
     final requestBody = () {
       if (isFirstTime) {
@@ -147,10 +146,11 @@ With these settings in mind, start the conversation as Alisha.
             "role": "system",
             "content": prompt,
           },
-          {
-            "role": "user",
-            "content": globalLanguageCode == 'en' ? 'Hi' : 'よろしくお願いします。',
-          },
+          if (["en", "ja"].contains(globalLanguageCode) == false)
+            {
+              "role": "system",
+              "content": "All replies should be translated into $globalLanguageCode.",
+            },
         ];
       }
 
@@ -159,6 +159,11 @@ With these settings in mind, start the conversation as Alisha.
           "role": "system",
           "content": prompt,
         },
+        if (["en", "ja"].contains(globalLanguageCode) == false)
+          {
+            "role": "system",
+            "content": "All replies should be translated into $globalLanguageCode.",
+          },
         ...textLog
             .map(
               (e) => {
@@ -198,126 +203,126 @@ With these settings in mind, start the conversation as Alisha.
     required List<String> textLog,
   }) {
     final sendingMessage1 = () {
-      if (globalLanguageCode == 'en') {
+      if (globalLanguageCode == 'ja') {
         final superiority = () {
           if (countOfRedControlPoint > countOfBlueControlPoint) {
-            return "Alisha has an advantage over User.";
+            return "アリーシャはUserより有利な状況です。";
           }
           if (countOfRedControlPoint < countOfBlueControlPoint) {
-            return "Alisha has an disadvantage over User.";
+            return "アリーシャはUserより不利な状況です。";
           }
-          return "The superiority of Alisha and User is very close.";
+          return "アリーシャとUserの優劣は拮抗しています。";
         }();
         return "${textLog[0].replaceAll(
-              'Red army',
-              'Alisha',
+              '赤軍',
+              'アリーシャ',
             ).replaceAll(
-              'Blue army',
+              '青軍',
               'User',
             )} $superiority";
       }
       final superiority = () {
         if (countOfRedControlPoint > countOfBlueControlPoint) {
-          return "アリーシャはUserより有利な状況です。";
+          return "Alisha has an advantage over User.";
         }
         if (countOfRedControlPoint < countOfBlueControlPoint) {
-          return "アリーシャはUserより不利な状況です。";
+          return "Alisha has an disadvantage over User.";
         }
-        return "アリーシャとUserの優劣は拮抗しています。";
+        return "The superiority of Alisha and User is very close.";
       }();
       return "${textLog[0].replaceAll(
-            '赤軍',
-            'アリーシャ',
+            'Red army',
+            'Alisha',
           ).replaceAll(
-            '青軍',
+            'Blue army',
             'User',
           )} $superiority";
     }();
     final sendingMessage2 = () {
-      if (globalLanguageCode == 'en') {
+      if (globalLanguageCode == 'ja') {
         return textLog[1]
             .replaceAll(
-              'Red army',
-              'Alisha',
+              '赤軍',
+              'アリーシャ',
             )
             .replaceAll(
-              'Blue army',
+              '青軍',
               'User',
             );
       }
       return textLog[1]
           .replaceAll(
-            '赤軍',
-            'アリーシャ',
+            'Red army',
+            'Alisha',
           )
           .replaceAll(
-            '青軍',
+            'Blue army',
             'User',
           );
     }();
     final sendingMessage3 = () {
-      if (globalLanguageCode == 'en') {
+      if (globalLanguageCode == 'ja') {
         return textLog[2]
             .replaceAll(
-              'Red army',
-              'Alisha',
+              '赤軍',
+              'アリーシャ',
             )
             .replaceAll(
-              'Blue army',
+              '青軍',
               'User',
             );
       }
       return textLog[2]
           .replaceAll(
-            '赤軍',
-            'アリーシャ',
+            'Red army',
+            'Alisha',
           )
           .replaceAll(
-            '青軍',
+            'Blue army',
             'User',
           );
     }();
     final sendingMessage4 = () {
-      if (globalLanguageCode == 'en') {
+      if (globalLanguageCode == 'ja') {
         return textLog[3]
             .replaceAll(
-              'Red army',
-              'Alisha',
+              '赤軍',
+              'アリーシャ',
             )
             .replaceAll(
-              'Blue army',
+              '青軍',
               'User',
             );
       }
       return textLog[3]
           .replaceAll(
-            '赤軍',
-            'アリーシャ',
+            'Red army',
+            'Alisha',
           )
           .replaceAll(
-            '青軍',
+            'Blue army',
             'User',
           );
     }();
     final sendingMessage5 = () {
-      if (globalLanguageCode == 'en') {
+      if (globalLanguageCode == 'ja') {
         return textLog[4]
             .replaceAll(
-              'Red army',
-              'Alisha',
+              '赤軍',
+              'アリーシャ',
             )
             .replaceAll(
-              'Blue army',
+              '青軍',
               'User',
             );
       }
       return textLog[4]
           .replaceAll(
-            '赤軍',
-            'アリーシャ',
+            'Red army',
+            'Alisha',
           )
           .replaceAll(
-            '青軍',
+            'Blue army',
             'User',
           );
     }();
