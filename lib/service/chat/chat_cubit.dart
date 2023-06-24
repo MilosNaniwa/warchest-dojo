@@ -149,7 +149,8 @@ With these settings in mind, start the conversation as Alisha.
           if (["en", "ja"].contains(globalLanguageCode) == false)
             {
               "role": "system",
-              "content": "All replies should be translated into $globalLanguageCode.",
+              "content": "All replies should be translated into ISO language code  "
+                  "'$globalLanguageCode'.",
             },
           {
             "role": "user",
@@ -166,7 +167,8 @@ With these settings in mind, start the conversation as Alisha.
         if (["en", "ja"].contains(globalLanguageCode) == false)
           {
             "role": "system",
-            "content": "All replies should be translated into $globalLanguageCode.",
+            "content":
+                "All replies should be translated into ISO language code '$globalLanguageCode'.",
           },
         ...textLog
             .map(

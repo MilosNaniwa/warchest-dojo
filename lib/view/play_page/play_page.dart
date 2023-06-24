@@ -177,7 +177,7 @@ class PlayPageView extends StatelessWidget {
                             Row(
                               children: [
                                 const _CurrentTurnText(),
-                                SizedBox(
+                                const SizedBox(
                                   width: 16,
                                 ),
                                 turn == HexagonConst.playerBlue
@@ -1562,7 +1562,7 @@ class ThinkingIndicatorState extends State<ThinkingIndicator> with SingleTickerP
       duration: Duration(milliseconds: widget.millisecond),
     );
 
-    _timer = Timer.periodic(Duration(microseconds: (widget.millisecond).toInt()), (Timer t) {
+    _timer = Timer.periodic(Duration(microseconds: (widget.millisecond * 10).toInt()), (Timer t) {
       if (_progress! < 1) {
         setState(() {
           _progress = _progress! + 0.01; // Increase by 1% every 100 milliseconds
