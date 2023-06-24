@@ -13,6 +13,7 @@ import 'package:warchest_dojo/const/unit_class_const.dart';
 import 'package:warchest_dojo/game_engine/rule_engine.dart';
 import 'package:warchest_dojo/global.dart';
 import 'package:warchest_dojo/localization/play_page_message.dart';
+import 'package:warchest_dojo/localization/title_page_message.dart';
 import 'package:warchest_dojo/model/action_model.dart';
 import 'package:warchest_dojo/model/game_state_model.dart';
 import 'package:warchest_dojo/model/unit_model.dart';
@@ -125,6 +126,12 @@ class PlayPageView extends StatelessWidget {
           : cubit.state.currentGameState!.turn,
     );
 
+    final hasGameFinished = context.select(
+      (GameMasterCubit cubit) => cubit.state.currentGameState == null
+          ? false
+          : cubit.state.currentGameState!.hasGameFinished,
+    );
+
     return StatefulWrapper(
       onInit: () {
         context.read<GameMasterCubit>().initialize(
@@ -180,7 +187,7 @@ class PlayPageView extends StatelessWidget {
                                 const SizedBox(
                                   width: 16,
                                 ),
-                                turn == HexagonConst.playerBlue
+                                turn == HexagonConst.playerBlue || hasGameFinished == true
                                     ? const SizedBox.shrink()
                                     : ThinkingIndicator(
                                         millisecond: aiThinkingTime,
@@ -424,6 +431,29 @@ class _GameFinishedArea extends StatelessWidget {
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.brown,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          SizedBox(
+            height: 40,
+            child: ElevatedButton.icon(
+              onPressed: () {
+                launchUrlString(
+                  TitlePageMessage.of(globalLanguageCode).feedbackUrl,
+                );
+              },
+              icon: Icon(
+                FontAwesomeIcons.comment,
+                size: MediaQuery.of(context).size.height * 0.02,
+              ),
+              label: Text(
+                TitlePageMessage.of(globalLanguageCode).feedback,
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple,
               ),
             ),
           ),
