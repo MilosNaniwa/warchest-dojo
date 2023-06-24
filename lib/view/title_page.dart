@@ -562,237 +562,188 @@ class TitlePage extends StatelessWidget {
           const Spacer(
             flex: 2,
           ),
-          Wrap(
-            children: [
-              TextButton(
-                onPressed: globalLanguageCode == "ja"
-                    ? null
-                    : () {
-                        globalLanguageCode = "ja";
-                        globalKanjiMode = true;
-                        Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                            builder: (context) => const TitlePage(),
-                          ),
-                          (route) => false,
-                        );
-                      },
-                child: Text(
-                  "日本語",
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Wrap(
+              children: [
+                TextButton(
+                  onPressed: globalLanguageCode == "ja"
+                      ? null
+                      : () {
+                          globalLanguageCode = "ja";
+                          globalKanjiMode = true;
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const TitlePage(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                  child: Text(
+                    "日本語",
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                    ),
+                  ),
+                ),
+                Text(
+                  " / ",
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.02,
                   ),
                 ),
-              ),
-              Text(
-                " / ",
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                TextButton(
+                  onPressed: globalLanguageCode == "en"
+                      ? null
+                      : () {
+                          globalLanguageCode = "en";
+                          globalKanjiMode = false;
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const TitlePage(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                  child: Text(
+                    "English",
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                    ),
+                  ),
                 ),
-              ),
-              TextButton(
-                onPressed: globalLanguageCode == "en"
-                    ? null
-                    : () {
-                        globalLanguageCode = "en";
-                        globalKanjiMode = false;
-                        Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                            builder: (context) => const TitlePage(),
-                          ),
-                          (route) => false,
-                        );
-                      },
-                child: Text(
-                  "English",
+                Text(
+                  " / ",
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.02,
                   ),
                 ),
-              ),
-              Text(
-                " / ",
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                TextButton(
+                  onPressed: globalLanguageCode == "zh"
+                      ? null
+                      : () {
+                          globalLanguageCode = "zh";
+                          globalKanjiMode = false;
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const TitlePage(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                  child: Text(
+                    "中文",
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                    ),
+                  ),
                 ),
-              ),
-              TextButton(
-                onPressed: globalLanguageCode == "zh"
-                    ? null
-                    : () {
-                        globalLanguageCode = "zh";
-                        globalKanjiMode = false;
-                        Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                            builder: (context) => const TitlePage(),
-                          ),
-                          (route) => false,
-                        );
-                      },
-                child: Text(
-                  "中文",
+                Text(
+                  " / ",
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.02,
                   ),
                 ),
-              ),
-              Text(
-                " / ",
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                TextButton(
+                  onPressed: globalLanguageCode == "ko"
+                      ? null
+                      : () {
+                          globalLanguageCode = "ko";
+                          globalKanjiMode = false;
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const TitlePage(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                  child: Text(
+                    "한국어",
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                    ),
+                  ),
                 ),
-              ),
-              TextButton(
-                onPressed: globalLanguageCode == "ko"
-                    ? null
-                    : () {
-                        globalLanguageCode = "ko";
-                        globalKanjiMode = false;
-                        Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                            builder: (context) => const TitlePage(),
-                          ),
-                          (route) => false,
-                        );
-                      },
-                child: Text(
-                  "한국어",
+                Text(
+                  " / ",
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.02,
                   ),
                 ),
-              ),
-              // Text(
-              //   " / ",
-              //   style: TextStyle(
-              //     fontSize: MediaQuery.of(context).size.height * 0.02,
-              //   ),
-              // ),
-              // TextButton(
-              //   onPressed: globalLanguageCode == "ru"
-              //       ? null
-              //       : () {
-              //           globalLanguageCode = "ru";
-              //           globalKanjiMode = false;
-              //           Navigator.of(context).pushAndRemoveUntil(
-              //             MaterialPageRoute(
-              //               builder: (context) => const TitlePage(),
-              //             ),
-              //             (route) => false,
-              //           );
-              //         },
-              //   child: Text(
-              //     "ロシア語",
-              //     style: TextStyle(
-              //       fontSize: MediaQuery.of(context).size.height * 0.02,
-              //     ),
-              //   ),
-              // ),
-              Text(
-                " / ",
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                TextButton(
+                  onPressed: globalLanguageCode == "hr"
+                      ? null
+                      : () {
+                          globalLanguageCode = "hr";
+                          globalKanjiMode = false;
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const TitlePage(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                  child: Text(
+                    "Hrvatski",
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                    ),
+                  ),
                 ),
-              ),
-              TextButton(
-                onPressed: globalLanguageCode == "hr"
-                    ? null
-                    : () {
-                        globalLanguageCode = "hr";
-                        globalKanjiMode = false;
-                        Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                            builder: (context) => const TitlePage(),
-                          ),
-                          (route) => false,
-                        );
-                      },
-                child: Text(
-                  "Hrvatski",
+                Text(
+                  " / ",
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.02,
                   ),
                 ),
-              ),
-              Text(
-                " / ",
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                TextButton(
+                  onPressed: globalLanguageCode == "fr"
+                      ? null
+                      : () {
+                          globalLanguageCode = "fr";
+                          globalKanjiMode = false;
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const TitlePage(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                  child: Text(
+                    "Français",
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                    ),
+                  ),
                 ),
-              ),
-              TextButton(
-                onPressed: globalLanguageCode == "fr"
-                    ? null
-                    : () {
-                        globalLanguageCode = "fr";
-                        globalKanjiMode = false;
-                        Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                            builder: (context) => const TitlePage(),
-                          ),
-                          (route) => false,
-                        );
-                      },
-                child: Text(
-                  "Français",
+                Text(
+                  " / ",
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.02,
                   ),
                 ),
-              ),
-              Text(
-                " / ",
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.02,
-                ),
-              ),
-              TextButton(
-                onPressed: globalLanguageCode == "it"
-                    ? null
-                    : () {
-                        globalLanguageCode = "it";
-                        globalKanjiMode = false;
-                        Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                            builder: (context) => const TitlePage(),
-                          ),
-                          (route) => false,
-                        );
-                      },
-                child: Text(
-                  "Italiano",
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                TextButton(
+                  onPressed: globalLanguageCode == "it"
+                      ? null
+                      : () {
+                          globalLanguageCode = "it";
+                          globalKanjiMode = false;
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const TitlePage(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                  child: Text(
+                    "Italiano",
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                    ),
                   ),
                 ),
-              ),
-              // Text(
-              //   " / ",
-              //   style: TextStyle(
-              //     fontSize: MediaQuery.of(context).size.height * 0.02,
-              //   ),
-              // ),
-              // TextButton(
-              //   onPressed: globalLanguageCode == "uk"
-              //       ? null
-              //       : () {
-              //           globalLanguageCode = "uk";
-              //           globalKanjiMode = false;
-              //           Navigator.of(context).pushAndRemoveUntil(
-              //             MaterialPageRoute(
-              //               builder: (context) => const TitlePage(),
-              //             ),
-              //             (route) => false,
-              //           );
-              //         },
-              //   child: Text(
-              //     "ウクライナ",
-              //     style: TextStyle(
-              //       fontSize: MediaQuery.of(context).size.height * 0.02,
-              //     ),
-              //   ),
-              // ),
-            ],
+              ],
+            ),
           ),
           const Spacer(
             flex: 1,
@@ -876,460 +827,6 @@ class TitlePage extends StatelessWidget {
                         ReleaseNoteMessage.of(globalLanguageCode).version0_0_1,
                       ],
                     ),
-                    // Column(
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   children: [
-                    //     VersionInfo(
-                    //       versionTitle: "ver 0.5.0",
-                    //       releaseNoteMessage:
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_5_0,
-                    //     ),
-                    //     VersionInfo(
-                    //       versionTitle: "ver 0.4.2",
-                    //       releaseNoteMessage:
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_4_2,
-                    //     ),
-                    //     VersionInfo(
-                    //       versionTitle: "ver 0.4.1",
-                    //       releaseNoteMessage:
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_4_1,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.4.0",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_4_0,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.3.3",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_3_3,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.3.2",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_3_2,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.3.1",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_3_1,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.3.0",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_3_0,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.2.4",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_2_4,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.2.3",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_2_3,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.2.2",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_2_2,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.2.1",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_2_1,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.2.0",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_2_0,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.1.2",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_1_2,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.1.1",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_1_1,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.1.0",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_1_0,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.0.10",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_10,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.0.9",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_9,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.0.8",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_8,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.0.7",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_7,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.0.6",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_6,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.0.5",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_5,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.0.4",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_4,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.0.3",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_3,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.0.2",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_2,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     const SizedBox(
-                    //       height: 16,
-                    //     ),
-                    //     const Text(
-                    //       "ver 0.0.1",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //       ),
-                    //     ),
-                    //     Wrap(
-                    //       children: [
-                    //         Text(
-                    //           ReleaseNoteMessage.of(globalLanguageCode).version0_0_1,
-                    //           style: const TextStyle(
-                    //             fontSize: 12,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ],
-                    // ),
                   ),
                 ),
                 actions: [
@@ -1359,12 +856,6 @@ class TitlePage extends StatelessWidget {
           ),
           const Spacer(
             flex: 1,
-          ),
-          Text(
-            "Created by Yuma Okuda",
-            style: TextStyle(
-              fontSize: MediaQuery.of(context).size.height * 0.015,
-            ),
           ),
           Text(
             "Inspired by War Chest",
